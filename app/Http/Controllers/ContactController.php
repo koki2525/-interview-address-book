@@ -134,9 +134,46 @@ class ContactController extends Controller
 
     public function addEmail(Request $request, $id)
     {
-        $contact = Contact::find($id);
+        $contact = Contact::find($id); 
+        $email_list = explode(',', $contact->email); 
+            
+        foreach($email_list as $email_item)
+        {
+            if($email_item===$request->get('email'))
+            {
+                return redirect()->back()->with('success', 'This email is already added!');
+            }
+        }
+
         $contact->email = $contact->email.','.$request->get('email');
         $contact->save();
+
+        return redirect('contacts')->with('success', 'Email successfully added!');
+    }
+
+    public function viewAddNumber($id)
+    {
+        $contact = Contact::find($id);
+        return view('contacts.add-number', compact('contact'));
+    }
+
+    public function addNumber(Request $request, $id)
+    {
+        $contact = Contact::find($id); 
+        $number_list = explode(',', $contact->number); 
+            
+        foreach($number_list as $number_item)
+        {
+            if($number_item===$request->get('number'))
+            {
+                return redirect()->back()->with('success', 'This number is already added!');
+            }
+        }
+
+        $contact->number = $contact->number.','.$request->get('number');
+        $contact->save();
+
+        return redirect('contacts')->with('success', 'Number successfully added!');
 
 
     }

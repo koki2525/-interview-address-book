@@ -50,7 +50,7 @@
             <td>{{$contact->id}}</td>
             <td>{{$contact->first_name}} {{$contact->last_name}}</td>
             <td>{{$contact->email}} <br> <a  title="Add additional email addresses"  href="/add-email/{{ $contact->id }}"><i class="fa fa-envelope" aria-hidden="true">+</i></a></td>
-            <td>{{$contact->number}}</td>
+            <td>{{$contact->number}} <br> <a  title="Add additional number"  href="/add-number/{{ $contact->id }}"><i class="fa fa-phone-square" aria-hidden="true">+</i></a></td>
             <td>
                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
             </td>

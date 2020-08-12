@@ -25,3 +25,6 @@ Route::post('/search', 'ContactController@search');
 
 Route::get('add-email/{id}','ContactController@viewAddEmail');
 Route::post('add-email/{id}', 'ContactController@addEmail');
+
+Route::get('add-number/{id}','ContactController@viewAddNumber');
+Route::post('add-number/{id}', 'ContactController@addNumber');
